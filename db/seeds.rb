@@ -9,17 +9,17 @@
 #   end
 require "faker"
 
-# 10.times do
-#   user = User.new(
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password
-#   )
-#   if user.save
-#     puts "User created with email: #{user.email}"
-#   else
-#     puts "Error creating user: #{user.errors.full_messages}"
-#   end
-# end
+10.times do
+  user = User.new(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password
+  )
+  if user.save
+    puts "User created with email: #{user.email}"
+  else
+    puts "Error creating user: #{user.errors.full_messages}"
+  end
+end
 
 Castle.create(
   name: "Chateau de Vitry-la-Ville",

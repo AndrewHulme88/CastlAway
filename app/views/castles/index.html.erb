@@ -4,7 +4,6 @@
 
 <ul>
   <% @castles.each do |castle| %>
-    <%= render castle %>
     <li><%= link_to castle.name, castle_path(castle) %>
     </li>
   <% end %>
