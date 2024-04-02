@@ -6,8 +6,8 @@
 
 <ul>
   <% @castles.each do |castle| %>
-  <div class="cards">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip">
+  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", style: "width: 200px; height: auto;"%>
   <div class="card-trip-infos">
     <div>
       <h2><%= castle.name %></h2>
@@ -21,7 +21,3 @@
     </li>
   <% end %>
 </ul>
-<%# <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div> %>
