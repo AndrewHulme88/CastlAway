@@ -1,9 +1,23 @@
+<%= render "castles/navbar" %>
+
 <h1>Castles</h1>
 
 <%= link_to("Home", root_path, class: "btn btn-gradient") %>
+<%= link_to "New Castle", new_castle_path %>
 
 <ul>
   <% @castles.each do |castle| %>
+  <div class="card-trip">
+  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", style: "width: 200px; height: auto;"%>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= castle.name %></h2>
+      <p><%= castle.description %></p>
+    </div>
+    <h2 class="card-trip-pricing">$<%= castle.price %></h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
     <li><%= link_to castle.name, castle_path(castle) %>
     </li>
   <% end %>
