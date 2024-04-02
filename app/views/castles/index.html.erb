@@ -1,0 +1,11 @@
+<h1>Castles</h1>
+
+<%= link_to("Home", root_path, class: "btn btn-gradient") %>
+
+<ul>
+  <% @castles.each do |castle| %>
+    <%= render castle %>
+    <li><%= link_to castle.name, castle_path(castle) %>
+    </li>
+  <% end %>
+</ul>
