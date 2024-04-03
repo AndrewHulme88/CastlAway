@@ -1,19 +1,22 @@
 <%= render "castles/navbar" %>
 
-<h1><%= @castle.name %></h1>
+<div class="castle-center">
+  <div class="castle-show-title">
+    <h1><%= @castle.name %></h1>
 
-<%= link_to("Home", root_path, class: "btn btn-gradient") %>
+    <%= link_to("Home", root_path, class: "btn btn-gradient index-btn") %>
 
-<h4>Book this castle!</h4>
+    <h4>Book this castle!</h4>
+  </div>
 
-<div class="card-trip">
-  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", style: "width: 200px; height: auto;"%>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @castle.name %></h2>
-      <p><%= @castle.description %></p>
+  <div class="castle-show-body">
+    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", style: "width: 600px; height: auto;", class: "castle-image" %>
+    <div class="index-card-trip-infos">
+      <div>
+        <h2><%= @castle.name %></h2>
+        <p><%= @castle.description %></p>
+      </div>
+      <h5 class="index-card-trip-pricing">$<%= @castle.price %></h5>
     </div>
-    <h2 class="card-trip-pricing">$<%= @castle.price %></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
 </div>
