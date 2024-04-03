@@ -1,0 +1,41 @@
+.index-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.index-layout a {
+  text-decoration: none;
+}
+
+.index-header {
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.index-card-trip {
+  height: 400px;
+  width: 400px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 10px 10px 8px 1px rgba(0, 0, 0, .15);
+}
+
+.index-card-trip h3, h5 {
+  margin-left: 15px;
+  margin-top: 15px;
+  color: black;
+}
+
+.castle-image {
+  border-radius: 10px;
+}
+
+.index-btn {
+  background-color:rgb(100, 99, 99);
+  color: white;
+}
+
+.index-btn:hover {
+  background-color: rgb(145, 141, 141);
+}

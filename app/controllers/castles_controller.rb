@@ -16,7 +16,7 @@ class CastlesController < ApplicationController
     if @castle.save
       redirect_to castle_path(@castle)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
