@@ -11,6 +11,10 @@
         <h3>Edit castle listing</h3>
         <%= simple_form_for @castle, url: castle_path(@castle), method: :patch do |f| %>
           <%= f.input :name, placeholder: 'Camelot' %>
+          <%= f.input :location, placeholder: 'France' %>
+          <%= f.input :price, placeholder: '10000' %>
+          <%= f.input :description, placeholder: 'An old fashioned, medievil style castle' %>
+          <%= f.input :image, placeholder: 'image.jpg' %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
