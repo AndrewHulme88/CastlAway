@@ -10,15 +10,13 @@
     <h4>Book this castle!</h4>
   </div>
 
-<div class="castle-show-body">
-  <div class="castle-image-container">
-    <%= image_tag @castle.image, style: "width: 600px; height: auto;", class: "castle-image" %>
-    <i class="fa-regular fa-star toggle-star"></i>
-  </div>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @castle.name %></h2>
-      <p><%= @castle.description %></p>
+  <div class="castle-show-body">
+    <%= image_tag url_for(@castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @castle.name %></h2>
+        <p><%= @castle.description %></p>
+      </div>
     </div>
     <h5 class="card-trip-pricing">$<%= @castle.price %></h5>
   </div>
