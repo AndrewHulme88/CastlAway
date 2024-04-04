@@ -1,5 +1,192 @@
 // Specific CSS for your home-page
-.banner {
+
+body,
+html {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(https://w0.peakpx.com/wallpaper/112/819/HD-wallpaper-castle-castles-road-vampire.jpg);
+  background-position: center;
+  background-size: cover;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+
+.navbar {
+  height: 12%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 30px;
+  cursor: pointer;
+  margin-left: 40px;
+}
+nav {
+  flex: 1;
+  text-align: right;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 60px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+}
+
+.row {
+  display: flex;
+  height: 90%;
+  align-items: center;
+}
+
+.col {
+  flex-basis: 50%;
+}
+
+h1 {
+  color: #fff;
+  font-size: 100px;
+}
+
+p {
+  color: #fff;
+  font-size: 11px;
+  line-height: 15px;
+}
+
+button {
+  width: 180px;
+  color: #000;
+  font-size: 12px;
+  padding: 12px 0;
+  background: #fff;
+  border: 0;
+  border-radius: 20px;
+  outline: none;
+  margin-top: 30px;
+}
+
+.card {
+  width: 200px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px 15px;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.5s;
+}
+
+.card1 {
+  background-image: url(https://knightstemplar.co/wp-content/uploads/2023/10/galileus2505_Medieval_Castles_in_France_88eda1df-aa72-489b-99f2-a5e27116b427.jpg);
+}
+
+.card2 {
+  background-image: url(https://b2192854.smushcdn.com/2192854/wp-content/uploads/2020/10/castello-di-miramare-1925340_1280-1024x575.jpg?lossy=1&strip=1&webp=1);
+}
+
+.card3 {
+  background-image: url(https://blog.lingoda.com/wp-content/uploads/2023/06/castles-in-switzerland.jpg);
+}
+
+.card4 {
+  background-image: url(https://i.guim.co.uk/img/media/ec0306712a355ad6216c350b58446084775838ae/0_68_2048_1229/master/2048.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=7a2b2b1512c5a4bfc1d5fb31af0303dd);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+h5 {
+  color: #fff;
+  text-shadow: 0 0 5px;
+}
+
+.card p {
+  text-shadow: 0 0 15px #000;
+  font-size: 8px;
+}
+
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+/*.banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -35,76 +222,75 @@
 
 .container {
   /* Add styles for container here */
-  padding: 20px; /* Adjust padding as needed */
-}
+/*padding: 20px; /* Adjust padding as needed */
+/*}
 
-.cards {
+/*.cards {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.card-category {
+/*.card-category {
   /* Add styles for card categories here */
-  /* Example styles */
-  width: 200px; /* Adjust width as needed */
-  height: 200px; /* Adjust height as needed */
-  color: white; /* Text color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Example styles */
+/* width: 200px; /* Adjust width as needed */
+//height: 200px; /* Adjust height as needed */
+//color: white; /* Text color */
+//display: flex;
+//justify-content: center;
+//align-items: center;
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
+//  Smallest device
+//@media (min-width: 100px) and (max-width: 575px) {
+// .cards {
+//  grid-template-columns: 1fr;
+//}
+//}
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
+//@media (min-width: 576px) {
+// .cards {
+// grid-template-columns: 1fr;
+// }
+//}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+//@media (min-width: 768px) {
+// .cards {
+//  grid-template-columns: 1fr 1fr;
+// }
+//}
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
+//@media (min-width: 992px) {
+// .cards {
+//  grid-template-columns: 1fr 1fr 1fr;
+// }
+//}
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
+//@media (min-width: 1200px) {
+//.cards {
+// grid-template-columns: 1fr 1fr 1fr;
+//}
+//}
 
-.sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #eee6e6; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
+//.sidenav {
+//height: 100%; /* 100% Full-height */
+/* width: 0; /* 0 width - change this with JavaScript */
+//position: fixed; /* Stay in place */
+// z-index: 1; /* Stay on top */
+// top: 0; /* Stay at the top */
+// left: 0;
+// background-color: #eee6e6; /* Black*/
+// overflow-x: hidden; /* Disable horizontal scroll */
+// padding-top: 60px; /* Place content 60px from the top */
+// transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+//}
 
 /* The navigation menu links */
-.sidenav a {
+/*.sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -114,12 +300,12 @@
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
+/*.sidenav a:hover {
   color: #f1f1f1;
 }
 
 /* Position and style the close button (top right corner) */
-.sidenav .closebtn {
+/*.sidenav .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -128,7 +314,7 @@
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
+/*#main {
   transition: margin-left 0.5s;
   padding: 20px;
 }
