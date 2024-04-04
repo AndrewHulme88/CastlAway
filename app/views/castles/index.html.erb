@@ -11,8 +11,9 @@
 <div class="index-layout">
     <% @castles.each do |castle| %>
       <%= link_to castle_path(castle) do %>
-        <div class="card-trip">
-          <%= image_tag castle.image, style: "width: 400px; height: auto;", class: "castle-image" %>
+        <div class="castle-card-trip">
+          <%= image_tag castle.image, style: "width: 400px; height: 300px;", class: "castle-image" %>
+          <i class="fa-regular fa-star toggle-star"></i>
           <div class="card-trip-infos">
             <div>
               <h3><%= castle.name %></h3>
