@@ -6,32 +6,36 @@
   <title>CastlAway</title>
 </head>
 <body>
-<div id="myNav" class="overlay">
-
-  <!-- Button to close the overlay navigation -->
+<div class="container">
+<div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-  <!-- Overlay content -->
-  <div class="overlay-content">
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-  </div>
-
+  <a href="#">About</a>
+  <a href="#">Dashboard</a>
+  <a href="#">Castles</a>
+  <a href="#">Contact</a>
 </div>
 
-<!-- Use any element to open/show the overlay navigation menu -->
-<span onclick="openNav()">open</span>
+<!-- Use any element to open the sidenav -->
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 
-  <div class="container">
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+  ...
+</div>
     <div class="navbar">
       <img src="images/castlelogo.png" class="logo">
   <nav>
       <ul>
-        <li><a href="">Dashboard</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact Us</a></li>
+
       </ul>
   </nav>
       <img src="images/castlelogo.png" class="menu-icon">
