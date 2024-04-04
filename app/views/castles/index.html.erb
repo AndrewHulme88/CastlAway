@@ -12,7 +12,7 @@
     <% @castles.each do |castle| %>
       <%= link_to castle_path(castle) do %>
         <div class="card-trip">
-          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", style: "width: 400px; height: auto;", class: "castle-image" %>
+          <%= image_tag castle.image, style: "width: 400px; height: auto;", class: "castle-image" %>
           <div class="card-trip-infos">
             <div>
               <h3><%= castle.name %></h3>
