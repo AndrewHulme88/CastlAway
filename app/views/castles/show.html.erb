@@ -11,7 +11,7 @@
   </div>
 
   <div class="castle-show-body">
-    <%= image_tag @castle.image, style: "width: 600px; height: auto;", class: "castle-image" %>
+    <%= image_tag url_for(@castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
     <div class="card-trip-infos">
       <div>
         <h2><%= @castle.name %></h2>
