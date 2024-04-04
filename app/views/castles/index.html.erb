@@ -3,24 +3,26 @@
 <div class="index-header">
   <h1>Castles</h1>
 
-  <%= link_to "Home", root_path, class: "btn btn-gradient index-btn" %>
-  <%= link_to "New Castle", new_castle_path, class: "btn btn-gradient index-btn" %>
+  <%= link_to "Home", root_path, class: "btn btn-gradient" %>
+  <%= link_to "New Castle", new_castle_path, class: "btn btn-gradient" %>
 </div>
 
 
 <div class="index-layout">
     <% @castles.each do |castle| %>
       <%= link_to castle_path(castle) do %>
-        <div class="index-card-trip">
+        <div class="card-trip">
           <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", style: "width: 400px; height: auto;", class: "castle-image" %>
-          <div class="index-card-trip-infos">
+          <div class="card-trip-infos">
             <div>
               <h3><%= castle.name %></h3>
             </div>
-            <h5 class="index-card-trip-pricing">$<%= castle.price %></h5>
+            <h5 class="card-trip-pricing">$<%= castle.price %></h5>
           </div>
         </div>
       <% end %>
       </a>
     <% end %>
 </div>
+
+<%= render "castles/footer" %>
