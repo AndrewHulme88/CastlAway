@@ -6,6 +6,39 @@
   <title>CastlAway</title>
 </head>
 <body>
+
+<div class="full-body">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Messages</a>
+          </li>
+          <li class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
+      </ul>
+    </div>
+  </div>
+</div>
 <div class="container">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -30,15 +63,6 @@ function closeNav() {
 <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">
   ...
-</div>
-    <div class="navbar">
-      <img src="images/castlelogo.png" class="logo">
-  <nav>
-      <ul>
-
-      </ul>
-  </nav>
-      <img src="images/castlelogo.png" class="menu-icon">
 </div>
 
 <div class="row">
@@ -70,8 +94,67 @@ function closeNav() {
 </div>
 </div>
 <div class="bottom-header">
-<h1>jhaksdgksadgsdg</h1>
+<br>
+<h2>Trending</h2>
+<br>
 </div>
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_5terre.jpg">
+      <img src="https://www.travelandleisure.com/thmb/592lRASbCgIgSUDl25nTMHkepo0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/eltz-castle-germany-CASTLES0417-63c065056d02483096f6ec7f172475db.jpg" alt="Cinque Terre">
+    </a>
+    <div class="desc">South of France</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_forest.jpg">
+      <img src="https://www.travelandleisure.com/thmb/Wh8s26R4zPVdMgHgIuL8KzI6z-I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/201212-w-worlds-most-visited-castles-neuschwanstein-2000-b0c485121ca74bde9428e03d38c5e68e.jpg" alt="Forest">
+    </a>
+    <div class="desc">Cinque de Terre</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_lights.jpg">
+      <img src="https://www.travelandleisure.com/thmb/9fDf9FfULSoYWhddS3mO2iTMLy4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/dunnottar-castle-scotland-CASTLES0417-d2e4526860254669995d12fa34f84fb8.jpg" alt="Northern Lights">
+    </a>
+    <div class="desc">Gin's Palace</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="img_mountains.jpg">
+      <img src="https://www.travelandleisure.com/thmb/SJFQfnyTK_pr5samvCGGmuK-2nE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/alcazar-castle-of-segovia-spain-CASTLES0417-5f2bddfdf3ed43aeb17f7f2670905c54.jpg" alt="Mountains">
+    </a>
+    <div class="desc">Andrew's Colosseum</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+</div>
+<div>
+<form action="action_page.php">
+  <div class="container1">
+    <h2>Subscribe to our Newsletter</h2>
+    <p>Lorem ipsum..</p>
+  </div>
+
+  <div class="container1" style="background-color:white">
+    <input type="text" placeholder="Name" name="name" required>
+    <input type="text" placeholder="Email address" name="mail" required>
+    <label>
+      <input type="checkbox" checked="checked" name="subscribe"> Daily Newsletter
+    </label>
+  </div>
+
+  <div class="container1">
+    <input type="submit" value="Subscribe">
+  </div>
+</form>
 </div>
 </body>
 </html>
