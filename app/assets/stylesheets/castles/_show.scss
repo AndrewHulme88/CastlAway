@@ -1,3 +1,11 @@
 .castle-center {
   display: flex;
 }
+
+.castle-show-body {
+  box-shadow: 10px 10px 8px 1px rgba(0, 0, 0, .15);
+}
+
+.castle-show-body p {
+  color: lightgray;
+}
