@@ -1,0 +1,286 @@
+[33mcommit 62b80038d170aa0e050ca70c143c0098f284df8f[m[33m ([m[1;36mHEAD -> [m[1;32madding-image-column-to-castle[m[33m, [m[1;31morigin/adding-image-column-to-castle[m[33m)[m
+Merge: 681bfa6 a58038f
+Author: ginpan <zgpan7@gmail.com>
+Date:   Thu Apr 4 20:49:38 2024 +1100
+
+    Resolve merge conflicts in castles views
+
+[33mcommit 681bfa6db52cff0444d7d8312ecc523e85c0b92f[m
+Author: ginpan <zgpan7@gmail.com>
+Date:   Thu Apr 4 20:43:04 2024 +1100
+
+    Added images to seeds and changed index and show to show images
+
+[33mcommit a58038f1beaab56afcf459dbf4794196d5718ca8[m
+Merge: 9f6de84 eb8189e
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Thu Apr 4 20:20:05 2024 +1100
+
+    Merge pull request #15 from AndrewHulme88/page_controller_css
+    
+    broom cursor
+
+[33mcommit eb8189e9220aa4ab842b92f957b88fb486d8fdfd[m[33m ([m[1;31morigin/page_controller_css[m[33m)[m
+Author: William Pettersen <williamkpettersen@outlook.com>
+Date:   Thu Apr 4 20:17:26 2024 +1100
+
+    broom cursor
+
+[33mcommit 9f6de84a2e5e64a89da3d5419f14916530f0f591[m
+Merge: 80cd54a 37414b0
+Author: Gin <zgpan7@gmail.com>
+Date:   Thu Apr 4 20:17:19 2024 +1100
+
+    Merge pull request #14 from AndrewHulme88/AH-castle-views
+    
+    Added box shadows to castle index and show
+
+[33mcommit 37414b0c8cc9069fece67273d4139ca7ec1a4b7d[m[33m ([m[1;31morigin/AH-castle-views[m[33m)[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Thu Apr 4 20:10:11 2024 +1100
+
+    Added box shadows to castle index and show
+
+[33mcommit 80cd54a5158b0cbd0ccd442c10a08c63fcea2431[m
+Merge: 97dd3af 627626b
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Thu Apr 4 20:09:05 2024 +1100
+
+    Merge pull request #13 from AndrewHulme88/adding-image-column-to-castle
+    
+    Added image:string to castle table
+
+[33mcommit 627626b6b1fe45fb8c84d1e9a7555eab9af364b8[m
+Author: ginpan <zgpan7@gmail.com>
+Date:   Thu Apr 4 20:06:23 2024 +1100
+
+    Added image:string to castle table
+
+[33mcommit 97dd3afc4aa57542e707448111655f690b4d95d9[m[33m ([m[1;32mworking-on-create-castle-with-userID[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: e89fda4 fd2ba0f
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Thu Apr 4 19:34:08 2024 +1100
+
+    Merge pull request #12 from AndrewHulme88/mending-database-connections
+    
+    Mended User and Castle Models
+
+[33mcommit e89fda4b18a954c9a2c732154b3d34fd88eb5b56[m
+Merge: 89f12c2 5a035eb
+Author: Gin <zgpan7@gmail.com>
+Date:   Thu Apr 4 19:33:06 2024 +1100
+
+    Merge pull request #10 from AndrewHulme88/building-castle-view
+    
+    Fixed up some styling and added footer to castle views
+
+[33mcommit 89f12c24c005b8f3d36124f3e0ba85cff9163154[m
+Merge: 652ad3f 8b3b6d8
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Thu Apr 4 19:32:28 2024 +1100
+
+    Merge pull request #11 from AndrewHulme88/pages_controller_css
+    
+    New Home with CSS HTML
+
+[33mcommit fd2ba0f18752cb4e11493bb674d51e7f1a4ecb44[m[33m ([m[1;31morigin/mending-database-connections[m[33m, [m[1;32mmending-database-connections[m[33m)[m
+Author: ginpan <zgpan7@gmail.com>
+Date:   Thu Apr 4 19:29:29 2024 +1100
+
+    Added has_many :castles, bookings, reviews and favourites in Uber
+
+[33mcommit 8b3b6d8fe1072a49ea4ef7f4f7973b9231113401[m[33m ([m[1;31morigin/pages_controller_css[m[33m)[m
+Author: William Pettersen <williamkpettersen@outlook.com>
+Date:   Thu Apr 4 19:28:00 2024 +1100
+
+    New Home with CSS HTML
+
+[33mcommit 5a035eb3319e6733f36b7f07445a01eca3e8e75f[m[33m ([m[1;31morigin/building-castle-view[m[33m)[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Thu Apr 4 19:24:00 2024 +1100
+
+    Fixed up some styling and added footer to castle views
+
+[33mcommit 652ad3fc193e787a1c3c5618bd6092e48cdcfad7[m
+Merge: 0073793 43e9b80
+Author: Gin <zgpan7@gmail.com>
+Date:   Thu Apr 4 06:49:51 2024 +1100
+
+    Merge pull request #9 from AndrewHulme88/building-castle-view
+    
+    Added some styling to castle index and show
+
+[33mcommit 43e9b8023cc4c4bd77df1b32a679f7283adb95fb[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Wed Apr 3 21:26:41 2024 +1100
+
+    Added some styling to castle index and show
+
+[33mcommit 00737934a1b0b2f2fc88d1447226469097d30a21[m
+Merge: b4527fd 30f5715
+Author: Gin <zgpan7@gmail.com>
+Date:   Tue Apr 2 22:28:28 2024 +1100
+
+    Merge pull request #6 from AndrewHulme88/building-castle-view
+    
+    Building castle view
+
+[33mcommit 30f57155a331132b0fd096313804bfa0eaa7e797[m
+Merge: eb4b1b6 b4527fd
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Tue Apr 2 22:27:32 2024 +1100
+
+    Fixed merge error
+
+[33mcommit b4527fd27caf1e1200ab0abbcb6db3873e47ba4a[m[33m ([m[1;32mbuilding-bookings-controller[m[33m)[m
+Merge: b8f19fa 822cf52
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Tue Apr 2 22:15:19 2024 +1100
+
+    Merge pull request #8 from AndrewHulme88/page-controller-front-end
+    
+    sidebar under progress
+
+[33mcommit b8f19fa022186486d02d80413282015f1071fa04[m
+Merge: b3ba42b a23a9f2
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Tue Apr 2 22:12:34 2024 +1100
+
+    Merge pull request #7 from AndrewHulme88/building-bookings-controller
+    
+    Added route.rb and added new and create
+
+[33mcommit eb4b1b624f1582d8640909e9aa9ba9a9af4aaf19[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Tue Apr 2 22:08:46 2024 +1100
+
+    Got a good start on cstle views
+
+[33mcommit a23a9f248525dda9ff3720e632a8f8cde1546752[m[33m ([m[1;31morigin/building-bookings-controller[m[33m)[m
+Author: ginpan <zgpan7@gmail.com>
+Date:   Tue Apr 2 22:07:42 2024 +1100
+
+    Added route.rb and added new and create
+
+[33mcommit 7e95c5728a46d9bf7a1411271c8a6f749f19842f[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Tue Apr 2 21:47:51 2024 +1100
+
+    Fixed images and added navbar to each page in castle views
+
+[33mcommit 822cf521b34741f2ecb649a22a6e96c592c0a278[m[33m ([m[1;31morigin/page-controller-front-end[m[33m)[m
+Author: William Pettersen <williamkpettersen@outlook.com>
+Date:   Tue Apr 2 21:42:02 2024 +1100
+
+    sidebar under progress
+
+[33mcommit c35e2fe26a043eaef8eaf621f8251f2e7086c05d[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Tue Apr 2 21:31:29 2024 +1100
+
+    Added images, price, name, and description to index and show views
+
+[33mcommit b3ba42bc1ab77e1e141d13847120cb9b803f1d16[m
+Merge: 85249e4 c892e38
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Tue Apr 2 21:28:45 2024 +1100
+
+    Merge pull request #5 from AndrewHulme88/castles_images
+    
+    Added 5 castles images in app/images
+
+[33mcommit c892e38a2b96669c58af1ed66d4420ebaf27aca2[m[33m ([m[1;31morigin/castles_images[m[33m, [m[1;32mcastles_images[m[33m)[m
+Author: ginpan <zgpan7@gmail.com>
+Date:   Tue Apr 2 21:24:37 2024 +1100
+
+    Added 5 castles images in app/images
+
+[33mcommit 9515670ad3f011c6a35d545b23f88ff111c481cb[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Tue Apr 2 21:04:27 2024 +1100
+
+    Updated index view with navbar
+
+[33mcommit 85249e48bc8194fa7aa7bfdbb54ae4cab5b4bbe0[m
+Merge: d7e2cd8 3be25c7
+Author: Gin <zgpan7@gmail.com>
+Date:   Tue Apr 2 21:00:16 2024 +1100
+
+    Merge pull request #2 from AndrewHulme88/building-castle-view
+    
+    Building castle view
+
+[33mcommit d7e2cd804e4692dabe464861b159a231b9b045dc[m
+Merge: 5cc7991 6e38277
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Tue Apr 2 21:00:09 2024 +1100
+
+    Merge pull request #4 from AndrewHulme88/page-controller-front-end
+    
+    front end pages-controller home-front-end-css
+
+[33mcommit 6e38277e7a41da488a4be184dda3b383eb84f670[m
+Author: William Pettersen <williamkpettersen@outlook.com>
+Date:   Tue Apr 2 20:57:07 2024 +1100
+
+    front end pages-controller home-front-end-css
+
+[33mcommit 5cc7991f0b9346acad446eb4f61462353da84eae[m
+Merge: 3d87a00 3c3b969
+Author: Gin <zgpan7@gmail.com>
+Date:   Tue Apr 2 20:54:11 2024 +1100
+
+    Merge pull request #1 from AndrewHulme88/building-castle-controller
+    
+    Created main functionallity for the Castle Controller
+
+[33mcommit 3d87a0012aaf5edb3218f4649b386e49f38368aa[m
+Merge: e49f530 b72bff8
+Author: Andrew Hulme <148535372+AndrewHulme88@users.noreply.github.com>
+Date:   Tue Apr 2 20:53:59 2024 +1100
+
+    Merge pull request #3 from AndrewHulme88/castle-seeds
+    
+    User and Castle seeds
+
+[33mcommit b72bff86a156e4359863a70150d5858e01dbf2e7[m[33m ([m[1;31morigin/castle-seeds[m[33m, [m[1;32mcastle-seeds[m[33m)[m
+Author: ginpan <zgpan7@gmail.com>
+Date:   Tue Apr 2 20:48:34 2024 +1100
+
+    Created users, castles seed, migration file to change users_id to user_id
+
+[33mcommit 3be25c760f4da1138d3b70b153f3b9cf9ca49f1c[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Tue Apr 2 20:34:00 2024 +1100
+
+    Basic function of Castle Views complete
+
+[33mcommit 3c3b969a20614f70852f8883380b99ad8df76d7a[m[33m ([m[1;31morigin/building-castle-controller[m[33m)[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Tue Apr 2 19:26:54 2024 +1100
+
+    Created main functionallity for the Castle Controller
+
+[33mcommit 68378ebc3505c4a6d9031573e6cdeb47c43c146c[m
+Author: ginpan <zgpan7@gmail.com>
+Date:   Tue Apr 2 19:23:59 2024 +1100
+
+    Using faker to seed at the moment
+
+[33mcommit e49f530ef344299e67e730d5a09a59199161bf57[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Sat Mar 30 16:36:16 2024 +1100
+
+    Created models and validations
+
+[33mcommit 9a86c71957e993d1db5f7b85868375c99d0e7eb5[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Sat Mar 30 15:20:15 2024 +1100
+
+    Setup Complete
+
+[33mcommit dd4642a0ad34260f77ab38a4930588c02e0ccc91[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: andrew hulme <andrew_hulme04@hotmail.com>
+Date:   Sat Mar 30 14:32:55 2024 +1100
+
+    Initial commit with minimal template from https://github.com/lewagon/rails-templates
