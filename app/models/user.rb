@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews
   has_many :favourites
+  has_many :favourite_castles, through: :favourites, source: :castle
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

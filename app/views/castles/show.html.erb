@@ -16,10 +16,47 @@
 
   <div class="castle-show-body">
     <%= image_tag url_for(@castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
+
+    <% if session[:favourites]&.include?(@castle.id) %>
+      <%= link_to "Unfavorite", "#", class: "btn btn-danger btn-favourite", data: { id: @castle.id, action: "remove_from_favorites" } %>
+    <% else %>
+      <%= link_to "Favorite", "#", class: "btn btn-primary btn-favourite", data: { id: @castle.id, action: "add_to_favorites" } %>
+    <% end %>
+
     <div class="card-trip-infos">
       <div>
         <h2><%= @castle.name %></h2>
-        <p><%= @castle.description %></p>
+
+        <p class="castle-p"><%= @castle.description %></p>
+        <h5><%= @castle.location %></h5>
+      </div>
+    </div>
+
+        
+
     <h5 class="card-trip-pricing">$<%= @castle.price %></h5>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('.btn-favourite').on('click', function(e) {
+      e.preventDefault();
+      var id = $(this).data('id');
+      var action = $(this).data('action');
+
+      $.ajax({
+        type: 'POST',
+        url: '/' + action,
+        data: { id: id },
+        success: function(response) {
+          alert(response.message);
+          // Optionally update UI here
+        },
+        error: function(xhr, status, error) {
+          console.error(error);
+        }
+      });
+    });
+  });
+</script>

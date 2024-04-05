@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+  resources :castles do
+    post 'add_to_favorites', to: 'favourites#create'
+    delete 'remove_from_favorites', to: 'favourites#destroy'
+  end
+
   resources :bookings, only: [:new, :create]
 
     # Nested routes for castles under users
