@@ -27,4 +27,10 @@
     <% end %>
 </div>
 
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['pk.eyJ1IjoiYW5kcmV3aHVsbWUiLCJhIjoiY2xzemNsMHdhMG15ZDJqcHEzaTl6bHoydCJ9.-c3JkqtXk5BETtCrUNP_hA'] %>">
+</div>
+
 <%= render "castles/footer" %>
