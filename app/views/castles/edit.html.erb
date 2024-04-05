@@ -1,4 +1,4 @@
-<%= render "castles/navbar" %>
+
 
 <h1>Edit castle</h1>
 
@@ -9,7 +9,7 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Edit castle listing</h3>
-        <%= simple_form_for @castle, url: castle_path(@castle), method: :patch do |f| %>
+        <%= simple_form_for [@user, @castle], url: user_castle_path(@castle), method: :patch do |f| %>
           <%= f.input :name, placeholder: 'Camelot' %>
           <%= f.input :location, placeholder: 'France' %>
           <%= f.input :price, placeholder: '10000' %>

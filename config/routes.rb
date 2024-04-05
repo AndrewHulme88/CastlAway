@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#home"
+
   resources :castles do
     post 'add_to_favorites', to: 'favourites#create'
     delete 'remove_from_favorites', to: 'favourites#destroy'
@@ -9,6 +10,12 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:new, :create]
 
+    # Nested routes for castles under users
+    resources :users do
+      resources :castles
+    end
+
+    resources :castles, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
