@@ -25,9 +25,12 @@
   box-shadow: 10px 10px 8px 1px rgba(0, 0, 0, .15);
 }
 
-.index-card-trip h3, h5 {
+.castle-card-trip:hover {
+  transform: scale(1.05);
+}
+
+.castle-h3, .castle-h5 {
   margin-left: 15px;
-  margin-top: 15px;
   color: black;
 }
 

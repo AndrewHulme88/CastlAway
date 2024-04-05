@@ -36,6 +36,18 @@ class CastlesController < ApplicationController
     redirect_to castles_path, status: :see_other
   end
 
+  def add_to_favorites
+    session[:favourites] ||= []
+    session[:favourites] << params[:id].to_i
+    render json: { message: 'Castle has been favorited' }, status: :ok
+  end
+
+  def remove_from_favorites
+    session[:favourites]&.delete(params[:id].to_i)
+    render json: { message: 'Castle has been unfavorited' }, status: :ok
+  end
+
+
   private
 
   def castle_params

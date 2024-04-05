@@ -16,9 +16,10 @@
           <i class="fa-regular fa-star toggle-star"></i>
           <div class="card-trip-infos">
             <div>
-              <h3><%= castle.name %></h3>
+              <h3 class="castle-h3"><%= castle.name %></h3>
             </div>
-            <h5 class="card-trip-pricing">$<%= castle.price %></h5>
+            <p class="castle-p"><%= castle.location %></p>
+            <h5 class="card-trip-pricing castle-h5">$<%= castle.price %></h5>
           </div>
         </div>
       <% end %>
