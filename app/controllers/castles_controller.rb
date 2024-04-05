@@ -1,6 +1,8 @@
 class CastlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @castles = Castle.all
+    # @castles = current_user.castles # for bookings? or dashboard?
+      @castles = Castle.all
   end
 
   def show
@@ -8,23 +10,29 @@ class CastlesController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @castle = Castle.new
   end
 
   def create
+    @user = User.find(params[:user_id])
     @castle = Castle.new(castle_params)
+    @castle.user = @user
+
     if @castle.save
-      redirect_to castle_path(@castle)
+      redirect_to user_castles_path(@castle)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @castle = Castle.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:user_id])
     @castle = Castle.find(params[:id])
     @castle.update(castle_params)
     redirect_to castle_path(@castle)
@@ -39,6 +47,6 @@ class CastlesController < ApplicationController
   private
 
   def castle_params
-    params.require(:castle).permit(:name, :location, :price, :description, :rating, :image)
+    params.require(:castle).permit(:name, :location, :price, :description, :rating, :image, :user_id)
   end
 end

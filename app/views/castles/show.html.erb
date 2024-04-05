@@ -1,11 +1,15 @@
-<%= render "castles/navbar" %>
+
 
 <div class="castle-center">
   <div class="castle-header">
     <h1><%= @castle.name %></h1>
 
-    <%= link_to("Home", root_path, class: "btn btn-flat") %>
-    <%= link_to "Edit Castle", edit_castle_path, class: "btn btn-flat" %>
+    <%= link_to "View All Castles", user_castles_path(@castle), class: "btn btn-flat" %>
+    <% if user_signed_in?  %>
+      <% if current_user.id == @castle.user_id %>
+        <%= link_to "Edit Castle",  edit_user_castle_path(@castle), class: "btn btn-flat" %>
+      <% end %>
+    <% end %>
 
     <h4>Book this castle!</h4>
   </div>
@@ -16,8 +20,6 @@
       <div>
         <h2><%= @castle.name %></h2>
         <p><%= @castle.description %></p>
-      </div>
-    </div>
     <h5 class="card-trip-pricing">$<%= @castle.price %></h5>
   </div>
 </div>
