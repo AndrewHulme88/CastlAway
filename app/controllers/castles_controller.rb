@@ -1,8 +1,14 @@
 class CastlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    # @castles = current_user.castles # for bookings? or dashboard?
-      @castles = Castle.all
+    @castles = Castle.all
+    @markers = @castles.geocoded.map do |castle|
+      {
+        lat: castle.latitude,
+        lng: castle.longitude
+      }
+    end
+
   end
 
   def show
