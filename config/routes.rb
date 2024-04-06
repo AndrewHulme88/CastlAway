@@ -8,14 +8,18 @@ Rails.application.routes.draw do
     delete 'remove_from_favorites', to: 'favourites#destroy'
   end
 
-  resources :bookings, only: [:new, :create]
-
-    # Nested routes for castles under users
-    resources :users do
-      resources :castles
+  # Nested routes for castles under users
+  resources :users do
+    resources :castles do
+      resources :bookings
     end
+  end
 
-    resources :castles, only: [:index, :show]
+  # resources :castles do
+  #   resources :bookings, only: [:new, :create]
+  # end
+
+  resources :castles, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -10,6 +10,7 @@
         <%= link_to "Edit Castle",  edit_user_castle_path(@castle), class: "btn btn-flat" %>
       <% end %>
     <% end %>
+    <%= link_to "Book this Castle", new_user_castle_booking_path(current_user, @castle), class: 'btn btn-primary' %>
 
     <h4>Book this castle!</h4>
   </div>
@@ -31,7 +32,6 @@
         <h5><%= @castle.location %></h5>
       </div>
     </div>
-
     <h5 class="card-trip-pricing">$<%= @castle.price %></h5>
   </div>
 </div>
