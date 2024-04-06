@@ -65,8 +65,9 @@ nav ul li a {
 }
 
 h1 {
-  color: #fff;
+  color: black;
   font-size: 100px;
+  text-align: center;
 }
 h2 {
   text-align: center;
@@ -75,7 +76,7 @@ h2 {
 }
 
 p {
-  color: #fff;
+  color: #0c0404;
   font-size: 11px;
   line-height: 15px;
 }
@@ -120,6 +121,14 @@ button {
 
 .card4 {
   background-image: url(https://i.guim.co.uk/img/media/ec0306712a355ad6216c350b58446084775838ae/0_68_2048_1229/master/2048.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=7a2b2b1512c5a4bfc1d5fb31af0303dd);
+}
+
+.card5 {
+  background-image: url(https://blog.lingoda.com/wp-content/uploads/2023/06/castles-in-switzerland.jpg);
+}
+
+.card6 {
+  background-image: url(https://b2192854.smushcdn.com/2192854/wp-content/uploads/2020/10/castello-di-miramare-1925340_1280-1024x575.jpg?lossy=1&strip=1&webp=1);
 }
 
 .card:hover {
@@ -216,7 +225,7 @@ div.desc {
 }
 
 .responsive {
-  padding: 0 6px;
+  padding: 5px 6px;
   float: left;
   width: 24.99999%;
 }
@@ -246,6 +255,13 @@ form {
 
 /* Add some padding and a grey background color to containers */
 .container1 {
+  padding: 25px;
+  background-color: #f1f1f1;
+  padding-right: 500px;
+  padding-left: 500px;
+}
+
+.container2 {
   padding: 25px;
   background-color: #f1f1f1;
   padding-right: 500px;
