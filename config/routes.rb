@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
+  get 'dashboard', to: 'pages#dashboard'
+  get 'home', to: 'pages#home'
+
 end
