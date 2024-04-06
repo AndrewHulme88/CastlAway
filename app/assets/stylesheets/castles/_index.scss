@@ -59,3 +59,18 @@
   cursor: pointer;
   font-size: 30px;
 }
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+
+.map {
+  border-radius: 20px;
+  box-shadow: 10px 10px 8px 1px rgba(0, 0, 0, .15);
+}
+
+.map:hover {
+  transform: scale(1.05);
+}
