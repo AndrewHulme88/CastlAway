@@ -1,7 +1,7 @@
 
 
 <div class="castle-header">
-  <h1>Bookings</h1>
+  <h2><%= current_user.first_name %>'s Bookings</h2>
 
   <%= link_to "Home", root_path, class: "btn btn-flat" %>
   <% if user_signed_in? %>
@@ -12,7 +12,7 @@
 
 <div class="index-layout">
     <% @bookings.each do |booking| %>
-      <%= link_to castle_path(booking.castle) do %>
+      <%= link_to user_castle_booking_path(booking.user, booking.castle, booking) do %>
         <div class="castle-card-trip">
           <%= image_tag booking.castle.image, style: "width: 400px; height: 300px;", class: "castle-image" %>
           <i class="fa-regular fa-star toggle-star"></i>
@@ -22,7 +22,7 @@
             </div>
             <p class="castle-p"><%= booking.castle.location %></p>
             <p class="castle-p">To: <%= booking.to%>, From: <%= booking.from%></p>
-            <h5 class="card-trip-pricing castle-h5">$<%= booking.castle.price %></h5>
+            <h5 class="card-trip-pricing castle-h5">$<%= booking.total_price %></h5>
           </div>
         </div>
       <% end %>

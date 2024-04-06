@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(booking_params)
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -15,11 +15,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
     @castle = Castle.find(params[:castle_id])
     @booking = Booking.new(booking_params)
     @booking.castle = @castle
     @booking.user = current_user
+
+    # Calculate duration
+    duration = (@booking.from - @booking.to).to_i
+
+    # Calculate total price (assuming price_per_day is a column in your Castle model)
+    @booking.total_price = duration * @castle.price
 
     if @booking.save
       redirect_to user_castles_path(@castle), notice: 'Booking was successfully created.'

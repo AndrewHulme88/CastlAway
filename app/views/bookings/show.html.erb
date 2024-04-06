@@ -1,38 +1,24 @@
 
+<div class="castle-center">
+  <div class="castle-header">
+    <h3><%= @booking.castle.name %></h3>
 
-<div class="castle-header">
-  <h1>Bookings</h1>
+     <%= link_to "View All Bookings", user_castle_bookings_path(current_user, @booking.castle.id), class: "btn btn-flat" %>
+  </div>
 
-  <%= link_to "Home", root_path, class: "btn btn-flat" %>
-  <% if user_signed_in? %>
-    <%= link_to "New Castle",  new_user_castle_path(current_user), class: "btn btn-flat" %>
-  <% end %>
+
+   <div class="castle-show-body">
+    <%= image_tag url_for(@booking.castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
+
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @booking.castle.name %></h2>
+
+        <p class="castle-p"><%= @booking.castle.description %></p>
+        <h5><%= @booking.castle.location %></h5>
+      </div>
+    </div>
+    <h5 class="card-trip-pricing">$<%= @booking.total_price %></h5>
+  </div>
 </div>
-
-
-<div class="index-layout">
-    <% @bookings.each do |booking| %>
-      <%= link_to user_castle_booking_path(booking) do %>
-        <div class="castle-card-trip">
-          <%= image_tag booking.castle.image, style: "width: 400px; height: 300px;", class: "castle-image" %>
-          <i class="fa-regular fa-star toggle-star"></i>
-          <div class="card-trip-infos">
-            <div>
-              <h3 class="castle-h3"><%= booking.castle.name %></h3>
-            </div>
-            <p class="castle-p"><%= booking.castle.location %></p>
-            <h5 class="card-trip-pricing castle-h5">$<%= booking.castle.price %></h5>
-          </div>
-        </div>
-      <% end %>
-      </a>
-    <% end %>
 </div>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['pk.eyJ1IjoiYW5kcmV3aHVsbWUiLCJhIjoiY2xzemNsMHdhMG15ZDJqcHEzaTl6bHoydCJ9.-c3JkqtXk5BETtCrUNP_hA'] %>">
-</div>
-
-<%= render "castles/footer" %>
