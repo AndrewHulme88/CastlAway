@@ -11,7 +11,10 @@
         <h3>Edit castle listing</h3>
         <%= simple_form_for [@user, @castle], url: user_castle_path(@castle), method: :patch do |f| %>
           <%= f.input :name, placeholder: 'Camelot' %>
-          <%= f.input :location, placeholder: 'France' %>
+          <%= f.input :location, placeholder: "55 Paris st France", input_html: {data:
+              {address_autocomplete_target: "address"}},
+              wrapper_html: {data: {controller: "address-autocomplete",
+              address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
           <%= f.input :price, placeholder: '10000' %>
           <%= f.input :description, placeholder: 'An old fashioned, medievil style castle' %>
           <%= f.input :image, placeholder: 'image.jpg' %>

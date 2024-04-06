@@ -13,7 +13,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/andrewhulme/clunjgdm400y301ra9ukxh80a"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -30,6 +30,12 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
 
+      // Add click event listener to the marker
+      customMarker.addEventListener('click', () => {
+        // Redirect to the castle page when marker is clicked
+        window.location.href = `/castles/${marker.castle_id}`
+      })
+
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
@@ -37,6 +43,7 @@ export default class extends Controller {
         .addTo(this.map)
     })
   }
+
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
