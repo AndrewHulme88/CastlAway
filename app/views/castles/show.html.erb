@@ -9,7 +9,7 @@
       <% if current_user.id == @castle.user_id %>
         <%= link_to "Edit Castle",  edit_user_castle_path(@castle), class: "btn btn-flat" %>
       <% end %>
-       <%= link_to "Book this Castle", new_user_castle_booking_path(current_user, @castle), class: 'btn btn-primary' %>
+       <%= link_to "Book this Castle", new_user_castle_booking_path(current_user, @castle), class: 'btn btn-flat' %>
     <% end %>
   </div>
 
