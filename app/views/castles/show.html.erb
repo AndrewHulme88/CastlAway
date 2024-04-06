@@ -22,7 +22,7 @@
     <% if session[:favourites]&.include?(@castle.id) %>
       <%= link_to "Unfavorite", "#", class: "btn btn-danger btn-favourite", data: { id: @castle.id, action: "remove_from_favorites" } %>
     <% else %>
-      <%= link_to "Favorite", "#", class: "btn btn-primary btn-favourite", data: { id: @castle.id, action: "add_to_favorites" } %>
+      <%= link_to "Favorite", "#", class: "btn btn-flat btn-favourite", data: { id: @castle.id, action: "add_to_favorites" } %>
     <% end %>
 
     <div class="card-trip-infos">
@@ -30,20 +30,14 @@
         <h2><%= @castle.name %></h2>
 
         <p class="castle-p"><%= @castle.description %></p>
-        <h5><%= @castle.location %></h5>
+        <p class="castle-p"><i class="fa-solid fa-location-dot logo-margin-right"></i><%= @castle.location %></p>
       </div>
     </div>
-    <h5 class="card-trip-pricing">$<%= @castle.price %></h5>
+    <h5 class="card-trip-pricing castle-h5">$<%= @castle.price %></h5>
   </div>
 </div>
 
-<div class="map-container">
-  <div class="map" style="width: 600px; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
+<%= render "castles/footer" %>
 
 <script>
   $(document).ready(function() {
