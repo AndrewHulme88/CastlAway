@@ -3,23 +3,17 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :castles do
-    post 'add_to_favorites', to: 'favourites#create'
-    delete 'remove_from_favorites', to: 'favourites#destroy'
-  end
-
+  resources :castles
+  resources :favourites, only: [:create, :destroy]
   # Nested routes for castles under users
   resources :users do
     resources :castles do
-      resources :bookings
+      resources :bookings do
+        resources :reviews, only: [:new, :create]
+      end
     end
   end
 
-  # resources :castles do
-  #   resources :bookings, only: [:new, :create]
-  # end
-
-  resources :castles, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

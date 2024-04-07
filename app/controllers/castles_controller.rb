@@ -16,6 +16,12 @@ class CastlesController < ApplicationController
 
   def show
     @castle = Castle.find(params[:id])
+    @booking = Booking.find_or_initialize_by(user: current_user, castle: @castle) do |booking|
+      booking.to = Date.today
+      booking.from = Date.today
+      booking.total_price = 0
+    end
+    @booking.save! if @booking.new_record?
   end
 
   def new
