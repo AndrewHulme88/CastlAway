@@ -15,7 +15,13 @@
       <%= link_to castle_path(castle) do %>
         <div class="castle-card-trip">
           <%= image_tag castle.image, style: "width: 400px; height: 300px;", class: "castle-image" %>
-          <i class="fa-regular fa-star toggle-star"></i>
+          <% if current_user && current_user.favourites.include?(castle) %>
+          <!-- Show the filled star icon if the castle is favorited -->
+            <i class="fas fa-star toggle-star" data-id="<%= castle.id %>"></i>
+          <% else %>
+          <!-- Show the empty star icon if the castle is not favorited -->
+            <i class="far fa-star toggle-star" data-id="<%= castle.id %>"></i>
+          <% end %>
           <div class="card-trip-infos">
             <div>
               <h3 class="castle-h3"><%= castle.name %></h3>

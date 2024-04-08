@@ -34,6 +34,22 @@
   </div>
 </div>
 
+<div class="reviews">
+  <h3>Reviews</h3>
+  <% if user_signed_in? %>
+    <%= link_to "Leave a review", new_user_castle_booking_review_path(user_id: current_user.id, castle_id: @castle.id, booking_id: @booking.id), class: 'btn btn-flat' %>
+  <% end %>
+
+  <div>
+    <%= @castle.reviews.each do |review| %>
+      <div>
+        <p><%= review.content %></p>
+        <p>Rating: <%= review.rating %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <%= render "castles/footer" %>
 
 <script>
@@ -42,19 +58,27 @@
       e.preventDefault();
       var id = $(this).data('id');
       var action = $(this).data('action');
+      var button = $(this); // Store reference to the button
+
+      console.log("Button clicked! Action:", action);
+
+      var url = '/favourites';
 
       $.ajax({
         type: 'POST',
-        url: '/' + action,
+        url: url,
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
         data: { id: id },
         success: function(response) {
-          alert(response.message);
-          // Optionally update UI here
+          // Your success handler code
         },
         error: function(xhr, status, error) {
-          console.error(error);
+          // Your error handler code
         }
       });
     });
   });
+
 </script>
