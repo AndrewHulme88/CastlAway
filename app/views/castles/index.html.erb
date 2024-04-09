@@ -1,5 +1,3 @@
-
-
 <div class="castle-header">
   <h1>Castles</h1>
 
@@ -15,7 +13,7 @@
       <%= link_to castle_path(castle) do %>
         <div class="castle-card-trip">
           <%= image_tag castle.image, style: "width: 400px; height: 300px;", class: "castle-image" %>
-          <% if current_user && current_user.favourites.include?(castle) %>
+          <% if user_signed_in?  && current_user.favourites.exists?(castle_id: castle.id) %>
           <!-- Show the filled star icon if the castle is favorited -->
             <i class="fas fa-star toggle-star" data-id="<%= castle.id %>"></i>
           <% else %>
