@@ -1,7 +1,7 @@
 <h1>Leave a review</h1>
 
 <%= link_to "View All Castles", castles_path(@castle), class: "btn btn-flat" %>
-#11
+
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
@@ -9,7 +9,7 @@
         <h3>Leave some feedback about this castle</h3>
         <%= simple_form_for [current_user, @castle, @booking, @review] do |f| %>
           <%= f.input :content, as: :text %>
-          <%= f.input :rating, as: :float %>
+          <%= f.input :rating, as: :float, placeholder: "Rating out of 5", input_html: { min: 0, max: 5, step: 0.1 } %>
           <%= f.hidden_field :booking_id, value: @booking.id %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
@@ -20,11 +20,11 @@
 
 <%= render "castles/footer" %>
 
-    <%# t.text "content"
-    t.float "rating"
-    t.bigint "bookings_id", null: false
-    t.bigint "users_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["bookings_id"], name: "index_reviews_on_bookings_id"
-    t.index ["users_id"], name: "index_reviews_on_users_id" %>
+<script>
+  $(document).on('input', 'input[type="number"]', function() {
+    var max = parseFloat($(this).attr('max'));
+    if ($(this).val() > max) {
+      $(this).val(max);
+    }
+  });
+</script>
