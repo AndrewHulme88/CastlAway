@@ -1,26 +1,18 @@
 
-<div class="castle-center">
+<div class="booking-center">
   <div class="castle-header">
-    <h3><%= @booking.castle.name %></h3>
+    <h3><%= current_user.first_name %>'s <%= @booking.castle.name %></h3>
 
      <%= link_to "View All Bookings", user_castle_bookings_path(current_user, @booking.castle.id), class: "btn btn-flat" %>
   </div>
+</div>
 
-
-   <div class="castle-show-body">
-    <%= image_tag url_for(@booking.castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
-
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= @booking.castle.name %></h2>
-
-        <p class="castle-p"><%= @booking.castle.description %></p>
-        <h5><%= @booking.castle.location %></h5>
-      </div>
+<div class="booking-container">
+    <%= image_tag @booking.castle.image, class: "card-img-top"%>
+    <div class="card-body">
+      <h5 class="card-title"><i class="fa-brands fa-fort-awesome"></i> <%=@booking.castle.name%></h5>
+      <p class="card-text"><%=@booking.castle.description %></p>
+      <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
+      <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%=@booking.total_price %></p>
     </div>
-    <h5 class="card-trip-pricing">$<%= @booking.total_price %></h5>
-  </div>
-
-</div>
-</div>
 </div>
