@@ -41,7 +41,7 @@
   <% end %>
 
   <div>
-    <%= @castle.reviews.each do |review| %>
+    <% @castle.reviews.each do |review| %>
       <div>
         <p><%= review.content %></p>
         <p>Rating: <%= review.rating %></p>
