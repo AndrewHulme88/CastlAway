@@ -35,24 +35,53 @@
 </div>
 
 <div class="reviews">
-  <h3>Reviews</h3>
-  <% if user_signed_in? %>
-    <%= link_to "Leave a review", new_user_castle_booking_review_path(user_id: current_user.id, castle_id: @castle.id, booking_id: @booking.id), class: 'btn btn-flat' %>
-  <% end %>
-
-  <div>
+  <div class="reviews-header">
+    <h3>Reviews</h3>
+    <% capped_average_rating = [@castle.average_rating, 5].min %>
+    <h2>Average Rating: <%= capped_average_rating %></h2>
+    <div class="star-rating" data-rating="<%= capped_average_rating %>">
+      <% (1..5).each do |i| %>
+        <% if i <= capped_average_rating %>
+          <i class="fa-solid fa-star star active"></i>
+        <% else %>
+          <i class="fa-solid fa-star star"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+      <%= link_to "Leave a review", new_user_castle_booking_review_path(user_id: current_user.id, castle_id: @castle.id, booking_id: @booking.id), class: 'btn btn-flat' %>
+    <% end %>
+  </div>
+  <div class="reviews-body">
     <% @castle.reviews.each do |review| %>
-      <div>
+      <div class="review-card">
+        <p><%= review.user.first_name %></p>
         <p><%= review.content %></p>
-        <p>Rating: <%= review.rating %></p>
+        <div class="star-rating" data-rating="<%= review.rating %>">
+          <% (1..5).each do |i| %>
+            <% if i <= review.rating %>
+              <i class="fa-solid fa-star star active"></i>
+            <% else %>
+              <i class="fa-solid fa-star star"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <% capped_rating = [review.rating, 5].min %>
+        <p>Rating: <%= capped_rating %></p>
       </div>
     <% end %>
   </div>
 </div>
 
+
 <%= render "castles/footer" %>
 
 <script>
+  $(document).on('click', '.star-rating .star', function() {
+    var rating = $(this).data('value');
+    $(this).closest('.star-rating').find('.star').removeClass('active');
+    $(this).prevAll('.star').addBack().addClass('active');
+  });
   $(document).ready(function() {
     $('.btn-favourite').on('click', function(e) {
       e.preventDefault();

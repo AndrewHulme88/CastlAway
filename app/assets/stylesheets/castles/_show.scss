@@ -33,3 +33,47 @@
   right: 10px;
   z-index: 1; /* Ensure the star icon appears above the image */
 }
+
+.reviews {
+  margin-top: 30px;
+  padding-bottom: 20px;
+  background-color: rgb(238, 234, 234);
+}
+
+.reviews-header {
+  padding-top: 10px;
+  margin-left: 30px;
+}
+
+.reviews-body {
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  background-color: white;
+  box-shadow: 10px 10px 8px 1px rgba(0, 0, 0, .15);
+  width: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.star-rating {
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.star {
+  cursor: pointer;
+  color: #ccc; /* Default star color */
+}
+
+.star.active {
+  color: #FFD700; /* Active star color */
+}

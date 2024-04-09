@@ -7,4 +7,8 @@ class Castle < ApplicationRecord
   validates :name, :location, :price, :description, presence: true
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  def average_rating
+    reviews.average(:rating).to_f || 0.0
+  end
 end

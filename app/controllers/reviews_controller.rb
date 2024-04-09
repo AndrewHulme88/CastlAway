@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      render json: { message: "Review created successfully" }, status: :created
+      redirect_to user_castles_path(@castle), notice: "Review was successful!"
     else
       render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
     end
