@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     # Calculate duration
-    duration = (@booking.from - @booking.to).to_i
+    duration = (@booking.to - @booking.from).to_i
 
     # Calculate total price (assuming price_per_day is a column in your Castle model)
     @booking.total_price = duration * @castle.price
