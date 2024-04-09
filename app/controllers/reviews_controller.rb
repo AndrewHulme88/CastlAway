@@ -8,10 +8,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @castle = Castle.find(params[:castle_id])
     @booking = Booking.find(params[:booking_id])
-    @review = @booking.reviews.build(review_params)
-    puts "Current User: #{current_user.inspect}" # Add this line
-    @review.user_id = current_user.id
+    @review = Review.new(review_params)
+    @review.castle = @castle
+    @review.booking = @booking
+    # puts "Current User: #{current_user.inspect}" # Add this line
+    @review.user = current_user
 
     if @review.save
       render json: { message: "Review created successfully" }, status: :created
@@ -20,10 +23,9 @@ class ReviewsController < ApplicationController
     end
   end
 
-
   private
 
   def review_params
-    params.require(:review).permit(:content, :rating, :booking_id)
+    params.require(:review).permit(:content, :rating, :booking_id, :castle_id, :user_id)
   end
 end
