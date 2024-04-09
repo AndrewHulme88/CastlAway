@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_07_114110) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_09_095546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,12 +42,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_07_114110) do
   end
 
   create_table "favourites", force: :cascade do |t|
-    t.bigint "users_id", null: false
-    t.bigint "castles_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "castle_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["castles_id"], name: "index_favourites_on_castles_id"
-    t.index ["users_id"], name: "index_favourites_on_users_id"
+    t.index ["castle_id"], name: "index_favourites_on_castle_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -80,8 +80,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_07_114110) do
   add_foreign_key "bookings", "castles"
   add_foreign_key "bookings", "users"
   add_foreign_key "castles", "users"
-  add_foreign_key "favourites", "castles", column: "castles_id"
-  add_foreign_key "favourites", "users", column: "users_id"
+  add_foreign_key "favourites", "castles"
+  add_foreign_key "favourites", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "castles"
   add_foreign_key "reviews", "users"
