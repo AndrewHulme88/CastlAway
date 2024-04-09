@@ -16,10 +16,10 @@
   <div class="castle-show-body">
     <%= image_tag url_for(@castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
 
-    <% if session[:favourites]&.include?(@castle.id) %>
-      <%= link_to "Unfavorite", "#", class: "btn btn-danger btn-favourite", data: { id: @castle.id, action: "remove_from_favorites" } %>
+    <% if current_user.favourites.exists?(castle_id: @castle.id) %>
+      <%= link_to "Unfavorite",  user_castle_favourite_path(current_user, @castle), method: :delete, class: "btn btn-danger btn-favourites" %>
     <% else %>
-      <%= link_to "Favorite", "#", class: "btn btn-flat btn-favourite", data: { id: @castle.id, action: "add_to_favorites" } %>
+      <%= link_to "Favorite", user_castle_favourites_path(current_user, @castle), method: :post, class: "btn btn-flat btn-favourite" %>
     <% end %>
 
     <div class="card-trip-infos">
@@ -91,7 +91,7 @@
 
       console.log("Button clicked! Action:", action);
 
-      var url = '/favourites';
+      var url = $(this).attr('href');
 
       $.ajax({
         type: 'POST',
@@ -110,4 +110,31 @@
     });
   });
 
+  $(document).ready(function() {
+    $('.btn-favourites').on('click', function(e) {
+      e.preventDefault();
+      var id = $(this).data('id');
+      var action = $(this).data('action');
+      var button = $(this); // Store reference to the button
+
+      console.log("Button clicked! Action:", action);
+
+      var url = $(this).attr('href');
+
+      $.ajax({
+        type: 'DELETE',
+        url: url,
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: { id: id },
+        success: function(response) {
+          // Your success handler code
+        },
+        error: function(xhr, status, error) {
+          // Your error handler code
+        }
+      });
+    });
+  });
 </script>
