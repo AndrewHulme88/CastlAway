@@ -1,6 +1,11 @@
 <div class="castle-header">
   <h1>Castles</h1>
 
+  <%= form_with(url: castles_path, method: "get", local: true) do |form| %>
+  <%= form.text_field :query, placeholder: "Search by name or location" %>
+  <%= form.submit "Search" %>
+  <% end %>
+
   <%= link_to "Home", root_path, class: "btn btn-flat" %>
   <% if user_signed_in? %>
     <%= link_to "New Castle",  new_user_castle_path(current_user), class: "btn btn-flat" %>
