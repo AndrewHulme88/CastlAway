@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_09_095546) do
     t.datetime "updated_at", null: false
     t.bigint "booking_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "castle_id", null: false
+    t.bigint "castle_id"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["castle_id"], name: "index_reviews_on_castle_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"

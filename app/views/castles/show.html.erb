@@ -36,10 +36,10 @@
 
 <div class="reviews">
   <div class="reviews-header">
-    <h3>Reviews</h3>
+    <h2>Reviews</h2>
     <% capped_average_rating = [@castle.average_rating, 5].min %>
-    <h2>Average Rating: <%= capped_average_rating %></h2>
     <div class="star-rating" data-rating="<%= capped_average_rating %>">
+      <h3>Average Rating: </h3>
       <% (1..5).each do |i| %>
         <% if i <= capped_average_rating %>
           <i class="fa-solid fa-star star active"></i>
@@ -55,8 +55,9 @@
   <div class="reviews-body">
     <% @castle.reviews.each do |review| %>
       <div class="review-card">
-        <p><%= review.user.first_name %></p>
+        <h6><%= review.user.first_name %></h6>
         <p><%= review.content %></p>
+        <div class="card-rating">
         <div class="star-rating" data-rating="<%= review.rating %>">
           <% (1..5).each do |i| %>
             <% if i <= review.rating %>
@@ -67,7 +68,8 @@
           <% end %>
         </div>
         <% capped_rating = [review.rating, 5].min %>
-        <p>Rating: <%= capped_rating %></p>
+        <h6>Rating: <%= capped_rating %></h6>
+        </div>
       </div>
     <% end %>
   </div>
