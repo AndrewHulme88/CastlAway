@@ -33,6 +33,26 @@ class BookingsController < ApplicationController
     end
   end
 
+  def approve
+    @booking = Booking.find(params[:id])
+
+    if @booking.update(approved: true)
+      redirect_to user_castle_booking_path(@booking), notice: 'Booking has been approved.'
+    else
+      redirect_to user_castle_booking_path(@booking), alert: 'Failed to approve booking.'
+    end
+  end
+
+  def deny
+    @booking = Booking.find(params[:id])
+
+    if @booking.update(approved: false)
+      redirect_to user_castle_booking_path(@booking), notice: 'Booking has been denied.'
+    else
+      redirect_to user_castle_booking_path(@booking), alert: 'Failed to deny booking.'
+    end
+  end
+
   private
 
   def booking_params
