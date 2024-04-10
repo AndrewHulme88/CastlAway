@@ -1,6 +1,6 @@
 .card {
-  width: fit-content;
-  height: 230px;
+  width: auto;
+  height: auto;
   display: inline-block;
   border-radius: 10px;
   padding: 15px 25px;
@@ -10,7 +10,7 @@
 }
 
 .img-fluid {
-  max-width: 75%;
+  max-width: 100%;
   height: auto;
   padding: 5px;
 }
@@ -18,4 +18,14 @@
 .card p {
   text-shadow: 0 0 15px #000;
   font-size: 12px;
+}
+
+.bookings-container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 900px;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
 }
