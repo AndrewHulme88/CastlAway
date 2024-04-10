@@ -1,4 +1,11 @@
 class Castle < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_location,
+    against: [:name, :location],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   belongs_to :user
   has_many :bookings
   has_many :reviews

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  resources :castles
+  resources :castles do
+    collection do
+      get "search"
+    end
+  end
   # Nested routes for castles under users
   resources :users do
     resources :castles do

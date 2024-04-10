@@ -1,7 +1,12 @@
 class CastlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @castles = Castle.all
+    @castles = if params[:query].present?
+      Castle.search_by_name_and_location(params[:query])
+    else
+      Castle.all
+    end
+
     @markers = @castles.geocoded.map do |castle|
       {
         castle_id: castle.id, # Include castle_id attribute
