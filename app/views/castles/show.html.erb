@@ -51,8 +51,10 @@
         <% end %>
       <% end %>
     </div>
+
+
     <% if user_signed_in? %>
-      <%= link_to "Leave a review", new_user_castle_booking_review_path(user_id: current_user.id, castle_id: @castle.id, booking_id: @booking.id), class: 'btn btn-flat' %>
+      <%= link_to "Leave a review",  new_user_castle_booking_review_path(user_id: current_user.id, castle_id: @castle.id, booking_id: @booking.id), class: 'btn btn-flat' %>
     <% end %>
   </div>
   <div class="reviews-body">

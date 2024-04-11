@@ -16,7 +16,6 @@ class CastlesController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {castle: castle})
       }
     end
-
   end
 
   def show

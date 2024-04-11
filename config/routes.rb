@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :favourites, only: [:create, :destroy]
       post 'bookings/:id/approve', to: 'bookings#approve', as: 'approve_booking'
       post 'bookings/:id/deny', to: 'bookings#deny', as: 'deny_booking'
+      delete 'bookings/:id', to: 'bookings#destroy', as: 'delete_booking'
     end
   end
 
