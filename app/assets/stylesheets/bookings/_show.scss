@@ -7,10 +7,37 @@
 
 .card-title {
   margin-top: 10px;
-  font-size: 24px;
+  font-size: 26px;
 }
 
 .card-body p {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 10px;
+}
+
+.card-title-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-title-head p {
+  color: gray;
+}
+
+.card-text-date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-text-date h5{
+  color: black;
+}
+
+
+.card-text-price h5{
+  color: black;
+}
+
+.card-text-price p{
+  text-decoration: underline;
 }

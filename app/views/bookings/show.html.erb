@@ -10,8 +10,12 @@
 <div class="booking-container">
     <%= image_tag @booking.castle.image, class: "card-img-top"%>
     <div class="card-body">
-      <h5 class="card-title"><i class="fa-brands fa-fort-awesome"></i> <%=@booking.castle.name%></h5>
+      <div class="card-title-head">
+        <h5 class="card-title"><i class="fa-brands fa-fort-awesome"></i> <%=@booking.castle.name%></h5>
+        <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
+      </div>
       <p class="card-text"><%=@booking.castle.description %></p>
+
       <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
       <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%=@booking.total_price %></p>
       <%= link_to "Approve", "#", class: "btn btn-success approve-booking", data: { confirm: "Are you sure you want to approve this booking?" } %>
@@ -62,6 +66,7 @@
     });
   });
 </script>
+
 
     </div>
 </div>
