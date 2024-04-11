@@ -15,6 +15,8 @@ Rails.application.routes.draw do
         resources :reviews, only: [:new, :create]
       end
       resources :favourites, only: [:create, :destroy]
+      post 'bookings/:id/approve', to: 'bookings#approve', as: 'approve_booking'
+      post 'bookings/:id/deny', to: 'bookings#deny', as: 'deny_booking'
     end
   end
 
