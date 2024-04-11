@@ -8,7 +8,7 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Create a new castle listing</h3>
-        <% simple_form_for [current_user, @castle, @booking] do |f| %>
+        <%= simple_form_for [current_user, @castle, @booking] do |f| %>
           <%= f.input :to, as: :date, input_html: { id: 'to-date' } %>
           <%= f.input :from, as: :date, input_html: { id: 'from-date' } %>
           <%= f.input :total_price, input_html: { id: 'total-price', readonly: true } %>
@@ -18,5 +18,4 @@
     </div>
   </div>
 </div>
-
 <%= render "castles/footer" %>

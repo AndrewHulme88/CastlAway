@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @user = current_user
     @castle = Castle.find(params[:castle_id])
     @booking = Booking.new
   end
@@ -28,7 +27,7 @@ class BookingsController < ApplicationController
     @booking.total_price = duration * @castle.price
 
     if @booking.save
-      redirect_to user_castles_path(@castle), notice: 'Booking was successfully created.'
+      redirect_to user_castle_bookings_path(@castle), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -52,6 +51,12 @@ class BookingsController < ApplicationController
     else
       redirect_to user_castle_booking_path(@booking), alert: 'Failed to deny booking.'
     end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to user_castle_bookings_path(current_user, @booking.castle), notice: 'Booking was successfully deleted.'
   end
 
   private
