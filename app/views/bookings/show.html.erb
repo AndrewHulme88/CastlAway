@@ -10,9 +10,24 @@
 <div class="booking-container">
     <%= image_tag @booking.castle.image, class: "card-img-top"%>
     <div class="card-body">
-      <h5 class="card-title"><i class="fa-brands fa-fort-awesome"></i> <%=@booking.castle.name%></h5>
+      <div class="card-title-head">
+        <h5 class="card-title"><i class="fa-brands fa-fort-awesome"></i> <%=@booking.castle.name%></h5>
+        <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
+      </div>
       <p class="card-text"><%=@booking.castle.description %></p>
-      <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
-      <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%=@booking.total_price %></p>
+      <div class="card-text-date">
+        <h5 class="card-text">Check In</h5>
+        <h5 class="card-text">Check Out</h5>
+      </div>
+      <div class="card-text-date">
+        <p class="card-text"><i class="fa-solid fa-calendar-days"></i> <%= @booking.from %></p>
+        <p class="card-text"><i class="fa-solid fa-calendar-days"></i> <%=@booking.to %></p>
+      </div>
+      <div class="card-text-price">
+        <h5 class="card-text">Total cost for <%= (@booking.to - @booking.from).to_i.abs %> nights</h5>
+        <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%=@booking.total_price %></p>
+      </div>
+
+
     </div>
 </div>
