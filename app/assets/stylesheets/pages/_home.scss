@@ -5,6 +5,31 @@
 $font-family-primary: "Montserrat", sans-serif;
 $font-family-secondary: "Roboto Slab", serif;
 
+.castle-header {
+  width: 380px;
+}
+.container-bg {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  border-radius: 15px 50px;
+}
+
+.form-inputs {
+  width: 380px;
+  padding: 60px 32px;
+  background: url(https://w0.peakpx.com/wallpaper/112/819/HD-wallpaper-castle-castles-road-vampire.jpg);
+  border-radius: 15px 50px;
+}
+
+.form-actions,
+.button {
+  width: 380px;
+  padding: 60px;
+  background: white;
+  border-radius: 15px 50px;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -215,6 +240,17 @@ button {
   transform: translateY(-10px);
 }
 
+.gallery {
+  border-radius: 15px;
+}
+.gallery:hover {
+  transform: translateY(-10px);
+  border-radius: 15px;
+}
+
+.responsive {
+  border-radius: 15px;
+}
 h5 {
   color: #fff;
   text-shadow: 0 0 5px;
@@ -224,12 +260,12 @@ h5 {
   text-shadow: 0 0 15px #000;
   font-size: 8px;
 }
-
+//Z-Index??? Saturday Job
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 1000; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #111; /* Black*/
@@ -305,7 +341,7 @@ div.desc {
 }
 
 .responsive {
-  padding: 5px 6px;
+  padding: 15px;
   float: left;
   width: 24.99999%;
 }
