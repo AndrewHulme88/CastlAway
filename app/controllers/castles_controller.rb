@@ -21,12 +21,13 @@ class CastlesController < ApplicationController
 
   def show
     @castle = Castle.find(params[:id])
-    @booking = Booking.find_or_initialize_by(user: current_user, castle: @castle) do |booking|
-      booking.to = Date.today
-      booking.from = Date.today
-      booking.total_price = 0
-    end
-    @booking.save! if @booking.new_record?
+    @booking = Booking.find_or_initialize_by(user: current_user, castle: @castle)
+    #do |booking|
+    #   booking.to = Date.today
+    #   booking.from = Date.today
+    #   booking.total_price = 0
+    # end
+    # @booking.save! if @booking.new_record?
   end
 
   def new
@@ -59,9 +60,10 @@ class CastlesController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     @castle = Castle.find(params[:id])
     @castle.destroy
-    redirect_to castles_path, status: :see_other
+    redirect_to root_path, notice: 'Castle listing was successfully deleted.'
   end
 
   def add_to_favorites
