@@ -1,11 +1,11 @@
 
 <div class="booking-center">
   <div class="castle-header">
-    <h3><%= current_user.first_name %>'s <%= @booking.castle.name %></h3>
+    <h3><%= current_user.first_name.capitalize %>'s <%= @booking.castle.name %></h3>
 
      <%= link_to "View All Bookings", user_castle_bookings_path(current_user, @booking.castle.id), class: "btn btn-flat" %>
-     <%= link_to "Delete this booking",  user_castle_delete_booking_path(current_user, @booking.castle, @booking), data: { confirm: "Are you sure you want to delete this booking?" }, class: "btn btn-danger" %>
-
+     <!-- <%= link_to "Delete this booking",  user_castle_delete_booking_path(current_user, @booking.castle, @booking), data: { confirm: "Are you sure you want to delete this booking?" }, class: "btn btn-danger" %>
+    -->
   </div>
 </div>
 
@@ -19,19 +19,36 @@
       <p class="card-text"><%=@booking.castle.description %></p>
       <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
       <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%=@booking.total_price %></p>
-      <% if current_user.id == @castle.user_id %>
-      <%= link_to "Approve", "#", class: "btn btn-success approve-booking", data: { confirm: "Are you sure you want to approve this booking?", action: user_castle_approve_booking_path(@booking.user, @booking.castle, @booking) } %>
-      <%= link_to "Deny", "#", class: "btn btn-danger deny-booking", data: { confirm: "Are you sure you want to deny this booking?", action: user_castle_deny_booking_path(@booking.user, @booking.castle, @booking) } %>
 
+
+      <% if @booking.approved && @current_user.id == @castle.user_id %>
+        <span class="card-text p-2 border text-success bg-dark">You have approved this booking</span>
+      <% elsif @booking.approved  %>
+        <span class="card-text p-2 border text-success bg-dark">Your bookings has been approved. Pack your bags</span>
+       <% elsif @booking.approved == false && @current_user.id == @castle.user_id %>
+        <span class="card-text border text-danger bg-dark p-2">You have denied this booking</span>
+      <% elsif @booking.approved == false %>
+         <span class="card-text border text-danger bg-dark p-2">Your bookings has been denied.</span>
+      <% elsif @booking.approved == nil %>
+        <% if current_user.id == @castle.user_id && @owner_bookings %>
+          <%= link_to "Approve", "#", class: "btn btn-success approve-booking", data: { confirm: "Are you sure you want to approve this booking?", action: user_castle_approve_booking_path(@booking.user, @booking.castle, @booking) } %>
+          <%= link_to "Deny", "#", class: "btn btn-danger deny-booking", data: { confirm: "Are you sure you want to deny this booking?", action: user_castle_deny_booking_path(@booking.user, @booking.castle, @booking) } %>
+        <% else %>
+        <span class="card-text border border-secondary p-2 text-white-50 bg-dark"><strong>Pending approval ...</strong></span>
+        <% end %>
       <% end %>
-    </div>
 
+
+
+
+  </div>
+</div>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.approve-booking').forEach(function(link) {
+  function doSomething() {
+    document.querySelectorAll('.approve-booking').forEach(function(link) {
     link.addEventListener('click', function(event) {
-      event.preventDefault();
-      var confirmMessage = this.getAttribute('data-confirm');
+    event.preventDefault();
+    var confirmMessage = this.getAttribute('data-confirm');
       if (confirm(confirmMessage)) {
         var form = document.createElement('form');
         form.method = 'POST';
@@ -45,6 +62,8 @@
         form.appendChild(hiddenField);
         document.body.appendChild(form);
         form.submit();
+
+
       }
     });
   });
@@ -66,10 +85,17 @@
         form.appendChild(hiddenField);
         document.body.appendChild(form);
         form.submit();
+
       }
     });
   });
-});
+}
 
-
+if (document.readyState === "loading") {
+  // Loading hasn't finished yet
+  document.addEventListener("DOMContentLoaded", doSomething);
+} else {
+  // `DOMContentLoaded` has already fired
+  doSomething();
+}
 </script>

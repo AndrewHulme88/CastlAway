@@ -4,9 +4,14 @@ class BookingsController < ApplicationController
     @bookings = current_user.bookings
   end
 
+  def owner
+    @owner_bookings = Booking.joins(:castle).where(castles: { user_id: current_user.id }).where.not(user_id: current_user.id)
+  end
+
   def show
     @booking = Booking.find(params[:id])
     @castle = Castle.find(params[:castle_id])
+    @owner_bookings = Booking.joins(:castle).where(castles: { user_id: current_user.id }).where.not(user_id: current_user.id)
   end
 
   def new
@@ -37,7 +42,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update(approved: true)
-      redirect_to user_castle_booking_path(@booking), notice: 'Booking has been approved.'
+      redirect_to user_castle_bookings_path(@booking), notice: 'Booking has been approved.'
     else
       redirect_to user_castle_booking_path(@booking), alert: 'Failed to approve booking.'
     end
@@ -47,7 +52,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update(approved: false)
-      redirect_to user_castle_booking_path(@booking), notice: 'Booking has been denied.'
+      redirect_to user_castle_bookings_path(@booking), notice: 'Booking has been denied.'
     else
       redirect_to user_castle_booking_path(@booking), alert: 'Failed to deny booking.'
     end

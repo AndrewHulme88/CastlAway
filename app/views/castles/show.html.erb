@@ -6,12 +6,13 @@
 
     <%= link_to "View All Castles", user_castles_path(@castle), class: "btn btn-flat" %>
     <% if user_signed_in?  %>
+
       <% if current_user.id == @castle.user_id %>
         <%= link_to "Edit Castle",  edit_user_castle_path(@castle), class: "btn btn-flat" %>
-        <%= link_to "Delete Castle", user_castle_path(current_user, @castle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat" %>
+        <%= link_to "Delete Castle", user_castle_path(current_user, @castle),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat" %>
       <% end %>
       <% if current_user.id != @castle.user_id %>
-       <%= link_to "Book this Castle", new_user_castle_booking_path(current_user, @castle), class: 'btn btn-flat' %>
+        <%= link_to "Book this Castle", new_user_castle_booking_path(current_user, @castle), class: 'btn btn-flat' %>
       <% end %>
     <% end %>
   </div>
@@ -53,10 +54,11 @@
     </div>
 
 
-    <% if user_signed_in? %>
-      <%= link_to "Leave a review",  new_user_castle_booking_review_path(user_id: current_user.id, castle_id: @castle.id, booking_id: @booking.id), class: 'btn btn-flat' %>
-    <% end %>
-  </div>
+<% if current_user.bookings.exists? %>
+  <%= link_to "Leave a review", new_user_castle_booking_review_path(user_id: current_user.id, castle_id: @castle.id, booking_id: @bookings.first.id), class: 'btn btn-flat' %>
+  <!-- Display other booking details as needed -->
+<% end %>
+
   <div class="reviews-body">
     <% @castle.reviews.each do |review| %>
       <div class="review-card">

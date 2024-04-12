@@ -1,5 +1,5 @@
 <div class="castle-header">
-  <h2><%= current_user.first_name %>'s Bookings</h2>
+  <h2><%= current_user.first_name.capitalize %>'s Bookings</h2>
 
 </div>
 <!--
@@ -44,4 +44,5 @@
       <% end %>
    <% end %>
 </div>
+
 <%= render "castles/footer" %>
