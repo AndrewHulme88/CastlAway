@@ -9,7 +9,7 @@
 
       <% if current_user.id == @castle.user_id %>
         <%= link_to "Edit Castle",  edit_user_castle_path(@castle), class: "btn btn-flat" %>
-        <%= link_to "Delete Castle", user_castle_path(current_user, @castle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-flat" %>
+        <%= link_to "Delete Castle", user_castle_path(current_user, @castle),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-flat" %>
       <% end %>
       <% if current_user.id != @castle.user_id %>
         <%= link_to "Book this Castle", new_user_castle_booking_path(current_user, @castle), class: 'btn btn-flat' %>
