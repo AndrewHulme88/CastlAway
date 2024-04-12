@@ -20,7 +20,7 @@ class CastlesController < ApplicationController
 
   def show
     @castle = Castle.find(params[:id])
-    @bookings = current_user.bookings if user_signed_in? && current_user.bookings.exists?
+    @bookings = current_user.bookings if user_signed_in?
   end
 
   def new

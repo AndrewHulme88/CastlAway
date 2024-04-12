@@ -1,0 +1,27 @@
+<div class="castle-header">
+  <h2><%= current_user.first_name.capitalize %>'s Castles Bookings</h2>
+
+  </div>
+  <div class="bookings-container">
+    <% @owner_bookings.each do |booking| %>
+      <%= link_to user_castle_booking_path(booking.user, booking.castle, booking) do %>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <%= image_tag booking.castle.image, class: "img-fluid rounded-start"%>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.castle.name %></h5>
+              <p class="card-text overflow-ellipsis"><%= booking.castle.description %></p>
+              <p class="card-text"><small class="text-muted"><%= (booking.to - booking.from).to_i.abs %> nights</small></p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <% end %>
+    <% end %>
+  </div>
+
+</div>
+<%= render "castles/footer" %>
