@@ -5,6 +5,10 @@
 $font-family-primary: "Montserrat", sans-serif;
 $font-family-secondary: "Roboto Slab", serif;
 
+.container5 {
+  width: 100vh;
+}
+
 .carousel {
   position: relative; /* Add this to make it a positioning context */
   /* Your existing carousel styles */
@@ -13,7 +17,7 @@ $font-family-secondary: "Roboto Slab", serif;
 .explore-button {
   position: absolute;
   top: 40px; /* Adjust as needed to position the button */
-  right: 90px; /* Adjust as needed to position the button */
+  right: 45px; /* Adjust as needed to position the button */
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
