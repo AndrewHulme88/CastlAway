@@ -6,10 +6,21 @@
 
 .castle-header {
   margin-left: 30px;
-  margin-right: 30px;
+  width: 50%;
+  text-align: center;
+}
+
+.show-header {
+  margin-top: 10%;
+}
+
+.show-h1 {
+  margin-bottom: 50px;
 }
 
 .castle-show-body {
+  display: flex;
+  flex-direction: column;
   box-shadow: 10px 10px 8px 1px rgba(0, 0, 0, 0.15);
   width: 50%;
   margin-left: 30px;
@@ -42,7 +53,7 @@
 
 .reviews-header {
   padding-top: 10px;
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
 .reviews-header h2 {
@@ -95,4 +106,16 @@
 
 .reviews h5 {
   color: black;
+}
+
+.btn {
+  width: 200px;
+}
+
+.btn-show-left-margin {
+  margin-left: 15px;
+}
+
+.btn-favourite {
+  margin-top: 15px;
 }

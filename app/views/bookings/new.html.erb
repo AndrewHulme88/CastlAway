@@ -1,21 +1,17 @@
 
 <h1>Book a new castle</h1>
 
-<%= link_to "View All Castles", castles_path(@castle), class: "btn btn-flat" %>
+<%= link_to "View All Castles", castles_path(@castle), class: "btn btn-flat btn-new" %>
 
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+<div class="container py-5 form-center">
+      <div class="bg-white rounded p-3 shadow form-style form-booking">
         <h3>Create a new castle listing</h3>
         <%= simple_form_for [current_user, @castle, @booking] do |f| %>
-          <%= f.input :to, as: :date, input_html: { id: 'to-date' } %>
           <%= f.input :from, as: :date, input_html: { id: 'from-date' } %>
-          <%= f.input :total_price, input_html: { id: 'total-price', readonly: true } %>
+          <%= f.input :to, as: :date, input_html: { id: 'to-date' } %>
+          <%# <%= f.input :total_price, input_html: { id: 'total-price', readonly: true } %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
-    </div>
-  </div>
 </div>
 <%= render "castles/footer" %>

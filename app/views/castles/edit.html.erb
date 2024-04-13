@@ -2,12 +2,10 @@
 
 <h1>Edit castle</h1>
 
-<%= link_to("Home", root_path, class: "btn btn-flat") %>
+<%= link_to("Home", root_path, class: "btn btn-flat btn-new") %>
 
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+<div class="container py-5 form-center">
+      <div class="bg-white rounded p-3 shadow form-style">
         <h3>Edit castle listing</h3>
         <%= simple_form_for [@user, @castle], url: user_castle_path(@castle), method: :patch do |f| %>
           <%= f.input :name, placeholder: 'Camelot' %>
@@ -21,8 +19,6 @@
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
-    </div>
-  </div>
 </div>
 
 <%= render "castles/footer" %>
