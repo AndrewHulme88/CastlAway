@@ -1,10 +1,9 @@
-
-
 <div class="castle-center">
-  <div class="castle-header">
-    <h1><%= @castle.name %></h1>
+  <div class="castle-header show-header">
+  <br class="show-br">
+    <h1 class="show-h1"><%= @castle.name %></h1>
 
-    <%= link_to "View All Castles", user_castles_path(@castle), class: "btn btn-flat" %>
+    <%= link_to "View All Castles", user_castles_path(@castle), class: "btn btn-flat btn-show-left-margin" %>
     <% if user_signed_in?  %>
 
       <% if current_user.id == @castle.user_id %>
@@ -16,14 +15,15 @@
       <% end %>
     <% end %>
   </div>
+  <br class="show-br">
 
   <div class="castle-show-body">
-    <%= image_tag url_for(@castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
+    <span><%= image_tag url_for(@castle.image), style: "width: 100%; height: auto;", class: "castle-image" %></span>
 
     <% if current_user.favourites.exists?(castle_id: @castle.id) %>
-      <%= link_to "Unfavorite",  user_castle_favourite_path(current_user, @castle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-favourites" %>
+      <%= link_to "Unfavorite",  user_castle_favourite_path(current_user, @castle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-favourites btn-show-left-margin" %>
     <% else %>
-      <%= link_to "Favorite", user_castle_favourites_path(current_user, @castle), data: {turbo_method: :post, turbo_confirm: "Are you sure?"}, class: "btn btn-flat btn-favourite" %>
+      <%= link_to "Favorite", user_castle_favourites_path(current_user, @castle), data: {turbo_method: :post, turbo_confirm: "Are you sure?"}, class: "btn btn-flat btn-favourite btn-show-left-margin" %>
     <% end %>
 
     <div class="card-trip-infos">
