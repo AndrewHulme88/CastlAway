@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update(approved: true)
-      redirect_to user_castle_bookings_path(@booking), notice: 'Booking has been approved.'
+      redirect_to user_castle_booking_path(@booking), notice: 'Booking has been approved.'
     else
       redirect_to user_castle_booking_path(@booking), alert: 'Failed to approve booking.'
     end
