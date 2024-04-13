@@ -5,6 +5,9 @@
 $font-family-primary: "Montserrat", sans-serif;
 $font-family-secondary: "Roboto Slab", serif;
 
+.figcaption {
+  margin-top: -40px;
+}
 .container5 {
   width: 100vh;
 }
@@ -16,8 +19,8 @@ $font-family-secondary: "Roboto Slab", serif;
 
 .explore-button {
   position: absolute;
-  top: 40px; /* Adjust as needed to position the button */
-  right: 45px; /* Adjust as needed to position the button */
+  bottom: 1px; /* Adjust as needed to position the button */
+  right: 25px; /* Adjust as needed to position the button */
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
