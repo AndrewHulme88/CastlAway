@@ -21,9 +21,9 @@
     <%= image_tag url_for(@castle.image), style: "width: 600px; height: auto;", class: "castle-image" %>
 
     <% if current_user.favourites.exists?(castle_id: @castle.id) %>
-      <%= link_to "Unfavorite",  user_castle_favourite_path(current_user, @castle), method: :delete, class: "btn btn-danger btn-favourites" %>
+      <%= link_to "Unfavorite",  user_castle_favourite_path(current_user, @castle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-favourites" %>
     <% else %>
-      <%= link_to "Favorite", user_castle_favourites_path(current_user, @castle), method: :post, class: "btn btn-flat btn-favourite" %>
+      <%= link_to "Favorite", user_castle_favourites_path(current_user, @castle), data: {turbo_method: :post, turbo_confirm: "Are you sure?"}, class: "btn btn-flat btn-favourite" %>
     <% end %>
 
     <div class="card-trip-infos">
@@ -82,8 +82,8 @@
   </div>
 </div>
 
-
 <%= render "castles/footer" %>
+
 
 <script>
   $(document).on('click', '.star-rating .star', function() {
@@ -111,6 +111,7 @@
         data: { id: id },
         success: function(response) {
           // Your success handler code
+         window.location.reload();
         },
         error: function(xhr, status, error) {
           // Your error handler code
@@ -139,6 +140,7 @@
         data: { id: id },
         success: function(response) {
           // Your success handler code
+          window.location.reload();
         },
         error: function(xhr, status, error) {
           // Your error handler code
@@ -147,3 +149,79 @@
     });
   });
 </script>
+
+
+
+<!--
+<script>
+$(document).ready(function() {
+  $('.btn-favourite').on('click', function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    var action = $(this).data('action');
+    var button = $(this); // Store reference to the button
+
+    var url = $(this).attr('href');
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: { id: id },
+      success: function(response) {
+        // Update button text and action
+        button.text('Unfavorite');
+        button.removeClass('btn-favourite').addClass('btn-favourites');
+        button.data('action', 'unfavorite');
+
+        // Update button click handler
+        button.off('click');
+        button.on('click', function(e) {
+          unfavoriteCastle(e, id, url);
+        });
+      },
+      error: function(xhr, status, error) {
+        // Your error handler code
+      }
+    });
+  });
+
+  $('.btn-favourites').on('click', function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    var action = $(this).data('action');
+    var url = $(this).attr('href');
+
+    unfavoriteCastle(e, id, url);
+  });
+
+  function unfavoriteCastle(e, id, url) {
+    $.ajax({
+      type: 'DELETE',
+      url: url,
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: { id: id },
+      success: function(response) {
+        // Update button text and action
+        $('.btn-favourites').text('Favorite');
+        $('.btn-favourites').removeClass('btn-favourites').addClass('btn-favourite');
+        $('.btn-favourite').data('action', 'favorite');
+
+        // Update button click handler
+        $('.btn-favourite').off('click');
+        $('.btn-favourite').on('click', function(e) {
+          favoriteCastle(e, id, url);
+        });
+      },
+      error: function(xhr, status, error) {
+        // Your error handler code
+      }
+    });
+  }
+});
+</script>
+-->
