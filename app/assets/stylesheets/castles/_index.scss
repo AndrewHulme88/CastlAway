@@ -30,6 +30,7 @@
 }
 
 .castle-card-trip:hover {
+  transition: 300ms ease-in-out;
   transform: scale(1.05);
 }
 
@@ -76,5 +77,6 @@
 }
 
 .map:hover {
+  transition: 300ms ease-in-out;
   transform: scale(1.05);
 }

@@ -1,40 +1,26 @@
-<%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <%# end %>
-
-    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> %>
-
-
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
 
-    <span class="nav-btn-left" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-
     <%= link_to "#", class: "navbar-brand" do %>
-    <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="/home">Home</a>
-  <a href="/about">About</a>
-  <a href="/dashboard">Dashboard</a>
-  <a href="/castles">Castles</a>
-  <a href="/contact">Contact</a>
-</div>
+      <span class="nav-btn-left" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/castles">Castles</a>
+        <a href="/contact">Contact</a>
+      </div>
 
+        <script>
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+          }
 
-
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "100%";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+          }
+        </script>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,16 +33,10 @@ function closeNav() {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "https://image.api.playstation.com/cdn/EP4476/CUSA11273_00/09gTDS91Vw0BqfOAXtJ39XybVFcrjGYP.png?w=440&thumb=false", class: "avatar", alt: "dropdown menu" %>
+            </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Bookings",  user_castle_bookings_path(current_user, current_user.castles), class: "dropdown-item" %>
               <%= link_to "My Castles Bookings",  user_castle_owner_bookings_path(current_user, current_user.castles), class: "dropdown-item" %>

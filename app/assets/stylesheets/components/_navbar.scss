@@ -1,19 +1,26 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   box-shadow: 10px 10px 8px 1px rgba(0, 0, 0, .15);
+  z-index: 100;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.avatar {
+  width: 60px;
 }
 
 .nav-title h1 {
   color: black;
+  display: flex;
+  align-items: center;
 }
 
 .castle-icon {
