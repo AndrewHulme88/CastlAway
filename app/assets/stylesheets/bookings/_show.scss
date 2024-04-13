@@ -29,6 +29,9 @@
   justify-content: space-between;
 }
 
+.card-price {
+
+}
 .card-text-date h5{
   color: black;
 }
@@ -40,4 +43,14 @@
 
 .card-text-price p{
   text-decoration: underline;
+}
+
+.card-title-cost {
+  display: flex;
+  justify-content: space-between;
+}
+
+.approval {
+  margin-top: 8px;
+  padding-top: 8px;
 }
