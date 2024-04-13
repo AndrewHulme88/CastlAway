@@ -3,9 +3,11 @@
   <div class="castle-header">
     <h3><%= current_user.first_name.capitalize %>'s <%= @booking.castle.name %></h3>
 
-     <%= link_to "View All Bookings", user_castle_bookings_path(current_user, @booking.castle.id), class: "btn btn-flat" %>
-     <!-- <%= link_to "Delete this booking",  user_castle_delete_booking_path(current_user, @booking.castle, @booking), data: { confirm: "Are you sure you want to delete this booking?" }, class: "btn btn-danger" %>
-    -->
+    <% if current_user.id == @castle.user_id %>
+      <%= link_to "View All Castles Bookings", user_castle_owner_bookings_path(current_user, current_user.castles), class: "btn btn-flat" %>
+     <% else %>
+      <%= link_to "View All Bookings", user_castle_bookings_path(current_user, @booking.castle.id), class: "btn btn-flat" %>
+    <% end %>
   </div>
 </div>
 
@@ -17,10 +19,23 @@
         <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
       </div>
       <p class="card-text"><%=@booking.castle.description %></p>
-      <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=@booking.castle.location %></p>
-      <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> <%=@booking.total_price %></p>
+      <div class="card-title-head border-bottom">
+        <h3 class="card-text">Check In</h3>
+        <h3 class="card-text">Check Out</h3>
+      </div>
+      <div class="card-text-date">
+        <p class="card-text"><%= @booking.from.strftime('%d %B %Y') %></p>
+        <p class="card-text"><%= @booking.to.strftime('%d %B %Y') %></p>
+      </div>
+      <div class="card-title-head border-bottom">
+        <h3 class="card-text">Total Cost</h3>
+      </div>
+      <div class="card-title-cost">
+        <p class="card-text">
+        <%= (@booking.to - @booking.from).to_i.abs %> nights X   <i class="fa-solid fa-dollar-sign"></i><%= @castle.price %>  =
+        <i class="fa-solid fa-dollar-sign"></i><%=@booking.total_price %></p>
 
-
+      <div class="approval">
       <% if @booking.approved && @current_user.id == @castle.user_id %>
         <span class="card-text p-2 border text-success bg-dark">You have approved this booking</span>
       <% elsif @booking.approved  %>
@@ -37,6 +52,11 @@
         <span class="card-text border border-secondary p-2 text-white-50 bg-dark"><strong>Pending approval ...</strong></span>
         <% end %>
       <% end %>
+      </div>
+      </div>
+
+      <br>
+
 
 
 
