@@ -18,6 +18,9 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
+    <%= f.input :image,
+                  required: true,
+                  label_html: { class: "white-label" } %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
