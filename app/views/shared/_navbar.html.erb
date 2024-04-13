@@ -35,7 +35,12 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "https://image.api.playstation.com/cdn/EP4476/CUSA11273_00/09gTDS91Vw0BqfOAXtJ39XybVFcrjGYP.png?w=440&thumb=false", class: "avatar", alt: "dropdown menu" %>
+              <% if current_user.image.present? %>
+              <%= image_tag current_user.image, class: "avatar"%>
+              <% else %>
+              <!-- Provide a default image if no image is attached to the user -->
+              <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBxa9qVd4KsVTu53JL_Prpx82NhTWV1m62cW6IrPBo3Q&s", class: "avatar" %>
+              <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Bookings",  user_castle_bookings_path(current_user, current_user.castles), class: "dropdown-item" %>
