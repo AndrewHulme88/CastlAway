@@ -46,8 +46,11 @@
          <span class="card-text border text-danger bg-dark p-2">Your bookings has been denied.</span>
       <% elsif @booking.approved == nil %>
         <% if current_user.id == @castle.user_id && @owner_bookings %>
-          <%= link_to "Approve", "#", class: "btn btn-success approve-booking", data: { confirm: "Are you sure you want to approve this booking?", action: user_castle_approve_booking_path(@booking.user, @booking.castle, @booking) } %>
-          <%= link_to "Deny", "#", class: "btn btn-danger deny-booking", data: { confirm: "Are you sure you want to deny this booking?", action: user_castle_deny_booking_path(@booking.user, @booking.castle, @booking) } %>
+       <!--   <%= link_to "Approve", "#", class: "btn btn-success approve-booking", data: { confirm: "Are you sure you want to approve this booking?", action: user_castle_approve_booking_path(@booking.user, @booking.castle, @booking) } %>
+          <%= link_to "Deny", "#", class: "btn btn-danger deny-booking", data: { confirm: "Are you sure you want to deny this booking?", action: user_castle_deny_booking_path(@booking.user, @booking.castle, @booking) } %>-->
+
+           <%= button_to "Approve",  user_castle_approve_booking_path(@booking.user, @booking.castle, @booking), class: "btn btn-success approve-booking", data: { method: :post, confirm: "Are you sure you want to approve this booking?"} %>
+          <%= button_to "Deny", user_castle_deny_booking_path(@booking.user, @booking.castle, @booking), class: "btn btn-danger deny-booking", data: { method: :delete, confirm: "Are you sure you want to deny this booking?" } %>
         <% else %>
         <span class="card-text border border-secondary p-2 text-white-50 bg-dark"><strong>Pending approval ...</strong></span>
         <% end %>
@@ -66,6 +69,7 @@
 
 <%= render "castles/footer" %>
 
+<!--
 <script>
   function doSomething() {
     document.querySelectorAll('.approve-booking').forEach(function(link) {
@@ -85,8 +89,6 @@
         form.appendChild(hiddenField);
         document.body.appendChild(form);
         form.submit();
-
-
       }
     });
   });
@@ -122,3 +124,4 @@ if (document.readyState === "loading") {
   doSomething();
 }
 </script>
+-->
